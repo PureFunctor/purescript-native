@@ -9,7 +9,7 @@ import Language.PureScript.AST.SourcePos (SourceSpan)
 import Safe (headDef, tailSafe)
 import CodeGen.IL.Common
 
-import qualified Language.PureScript.Constants as C
+import qualified Language.PureScript.Constants.Prelude as C
 
 tcoLoop :: Text
 tcoLoop = "ṩtco_loop"
