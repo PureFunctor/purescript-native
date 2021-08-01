@@ -1,6 +1,6 @@
-module Tests (runTests) where
+module Tests (runTests, main) where
 
-import Prelude.Compat
+import Prelude
 import Data.List
 import Control.Applicative
 import Control.Monad
@@ -9,6 +9,8 @@ import System.Process
 import System.FilePath
 import System.IO
 import System.Directory
+
+main = runTests
 
 -------------------------------------------------------------------------------
 testsDir :: IO (FilePath, FilePath)
@@ -31,7 +33,7 @@ runTests = do
   let srcDir = outputDir </> "src"
   createDirectory srcDir
 
-  callProcess "git" ["clone", "--branch", "v0.13.8", "--depth", "1", "https://github.com/purescript/purescript.git"]
+  -- callProcess "git" ["clone", "--branch", "v0.14.3", "--depth", "1", "https://github.com/purescript/purescript.git"]
   let passingDir = baseDir </> "purescript" </> "tests" </> "purs" </> "passing"
   passingTestCases <- sort . filter (".purs" `isSuffixOf`) <$> getDirectoryContents passingDir
 
@@ -72,6 +74,7 @@ runTests = do
 
     removeFile (srcDir </> inputFile)
     when testCaseDirExists $ callProcess "rm" ["-rf", srcDir </> (takeWhile (/='.') inputFile)]
+    removeFile (passingDir </> inputFile)
 
   -- TODO: support failing test cases
   --
@@ -96,16 +99,18 @@ packages =
   , "effect"
   , "foldable-traversable"
   , "functions"
-  , "generics-rep"
   , "invariant"
   , "newtype"
   , "partial"
   , "prelude"
-  , "proxy"
   , "refs"
   , "st"
   , "type-equality"
   , "typelevel-prelude"
+  , "either"
+  , "maybe"
+  , "tuples"
+  , "unsafe-coerce"
   ]
 
 -------------------------------------------------------------------------------

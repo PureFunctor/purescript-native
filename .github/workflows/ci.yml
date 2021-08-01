@@ -1,0 +1,30 @@
+name: Test
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/checkout@v2
+      with:
+        repository: "purescript/purescript"
+        ref: "v0.14.3"
+        path: "purescript"
+
+    - uses: haskell/actions/setup@v1
+      with:
+        ghc-version: "8.10.4"
+        enable-stack: true
+        stack-version: "latest"
+
+    - name: Build
+      run: |
+        stack build --fast
+
+    - name: Test
+      run: |
+        alias psgo="stack exec psgo --"
+        stack runhaskell src/Tests.hs
