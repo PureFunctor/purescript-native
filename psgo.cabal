@@ -1,6 +1,6 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.2.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 
@@ -43,9 +43,26 @@ library
       Paths_psgo
   hs-source-dirs:
       src
-  default-extensions: ConstraintKinds DataKinds DeriveFunctor EmptyDataDecls FlexibleContexts KindSignatures LambdaCase MultiParamTypeClasses NoImplicitPrelude PatternGuards PatternSynonyms RankNTypes RecordWildCards OverloadedStrings ScopedTypeVariables TupleSections ViewPatterns
+  default-extensions:
+      ConstraintKinds
+      DataKinds
+      DeriveFunctor
+      EmptyDataDecls
+      FlexibleContexts
+      KindSignatures
+      LambdaCase
+      MultiParamTypeClasses
+      NoImplicitPrelude
+      PatternGuards
+      PatternSynonyms
+      RankNTypes
+      RecordWildCards
+      OverloadedStrings
+      ScopedTypeVariables
+      TupleSections
+      ViewPatterns
   build-depends:
-      aeson >=1.0 && <1.5
+      aeson >=1.0 && <1.6
     , base >=4.7 && <5
     , base-compat >=0.6.0
     , bytestring >=0.10.8.2 && <0.11
@@ -61,6 +78,7 @@ library
     , process
     , protolude >=0.1.6
     , purescript
+    , purescript-cst
     , safe >=0.3.9 && <0.4
     , text
     , transformers >=0.3.0 && <0.6
@@ -74,7 +92,7 @@ executable psgo
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      aeson >=1.0 && <1.5
+      aeson >=1.0 && <1.6
     , base >=4.7 && <5
     , base-compat >=0.6.0
     , bytestring >=0.10.8.2 && <0.11
@@ -91,6 +109,7 @@ executable psgo
     , protolude >=0.1.6
     , psgo
     , purescript
+    , purescript-cst
     , safe >=0.3.9 && <0.4
     , text
     , transformers >=0.3.0 && <0.6
@@ -105,7 +124,7 @@ test-suite psgo-test
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      aeson >=1.0 && <1.5
+      aeson >=1.0 && <1.6
     , base >=4.7 && <5
     , base-compat >=0.6.0
     , bytestring >=0.10.8.2 && <0.11
@@ -122,6 +141,7 @@ test-suite psgo-test
     , protolude >=0.1.6
     , psgo
     , purescript
+    , purescript-cst
     , safe >=0.3.9 && <0.4
     , text
     , transformers >=0.3.0 && <0.6

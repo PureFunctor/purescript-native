@@ -1,16 +1,17 @@
-resolver: lts-13.26
+resolver: lts-17.6
+pvp-bounds: upper
 
 packages:
 - .
 
 extra-deps:
-- git: https://github.com/purescript/purescript
-  commit: 9cad73ed8ea7df3011032ddbd2f3de5a0c08629c
-- happy-1.19.9
 - language-javascript-0.7.0.0
-- network-3.0.1.1
-- these-1.0.1
-- semialign-1
+- these-1.1.1.1
+- github: purescript/purescript
+  commit: v0.14.3
+  subdirs:
+    - lib/purescript-cst
+    - '.'
 
 nix:
   enable: false
@@ -19,6 +20,3 @@ nix:
 flags:
   aeson-pretty:
     lib-only: true
-  these:
-    assoc: false
-    quickcheck: false

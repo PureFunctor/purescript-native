@@ -25,6 +25,7 @@ dependencies:
 - base >= 4.7 && < 5
 - bytestring >= 0.10.8.2 && < 0.11
 - purescript -any
+- purescript-cst -any
 - base-compat >=0.6.0
 - protolude >=0.1.6
 - text
@@ -35,7 +36,7 @@ dependencies:
 - safe >=0.3.9 && <0.4
 - transformers >=0.3.0 && <0.6
 - mtl >=2.1.0 && <2.3.0
-- aeson >=1.0 && <1.5
+- aeson >=1.0 && <1.6
 - directory -any
 - process -any
 - file-embed -any
