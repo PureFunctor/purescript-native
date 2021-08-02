@@ -24,6 +24,18 @@ jobs:
         enable-stack: true
         stack-version: "latest"
 
+    - name: Cache Global
+      uses: actions/cache@v2
+      with:
+        path: ~/.stack
+        key: ${{ runner.os }}-stack-global-${{ hashFiles('**.yaml') }}
+
+    - name: Cache Local
+      uses: actions/cache@v2
+      with:
+        path: .stack-work
+        key: ${{ runner.os }}-stack-local-${{ hashFiles('**.yaml') }}
+
     - name: Build
       run: |
         stack build --fast
@@ -31,4 +43,4 @@ jobs:
     - name: Test
       run: |
         alias psgo="stack exec psgo --"
-        stack runhaskell src/Tests.hs
+        stack test --fast

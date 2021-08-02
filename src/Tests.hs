@@ -1,4 +1,4 @@
-module Tests (runTests, main) where
+module Tests (runTests) where
 
 import Prelude
 import Data.List
@@ -9,8 +9,6 @@ import System.Process
 import System.FilePath
 import System.IO
 import System.Directory
-
-main = runTests
 
 -------------------------------------------------------------------------------
 testsDir :: IO (FilePath, FilePath)
