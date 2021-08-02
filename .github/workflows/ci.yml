@@ -26,6 +26,8 @@ jobs:
 
     - uses: purescript-contrib/setup-purescript@main
 
+    - uses: dhall-lang/setup-dhall@v4
+
     - name: Cache Global
       uses: actions/cache@v2
       with:
@@ -42,7 +44,7 @@ jobs:
       run: |
         stack build --fast
 
-    - name: Test
-      run: |
-        alias psgo="stack exec psgo --"
-        stack test --fast
+        # - name: Test
+        #   run: |
+        #     alias psgo="stack exec psgo --"
+        #     stack test --fast
