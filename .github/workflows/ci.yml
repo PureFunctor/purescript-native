@@ -24,6 +24,8 @@ jobs:
         enable-stack: true
         stack-version: "latest"
 
+    - uses: purescript-contrib/setup-purescript@main
+
     - name: Cache Global
       uses: actions/cache@v2
       with:
